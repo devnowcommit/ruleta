@@ -1,0 +1,180 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Empty HTML5 Template</title>
+  <meta name="description" content="Empty HTML5 Template">
+  <meta name="DWEC" content="Desarrollo Web Entorno Cliente">
+
+  <!--<link rel="stylesheet" href="css/styles.css?v=1.0">-->
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+  <style>
+
+html{
+	height: 100%;
+}
+body{
+	background-color: #484848;
+	height: 100%;
+	margin: 0px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: Arial;
+}
+
+h1{
+	color: white
+}
+
+#spinner{
+	width: 400px;
+	height: 400px;
+	min-width: 400px;
+	min-height: 400px;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+}
+
+#clicker{
+	position: absolute;
+	top: 0px;
+	left: calc(50% - 10px);
+	width: 15px;
+	height: 60px;
+	z-index: 2;
+	transform-origin: 50% 20px;
+	pointer-events: none;
+}
+
+#wheel{
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	width: calc(100% - 60px);
+	height: calc(100% - 60px);
+	box-sizing: border-box;
+	border-radius: 100%;
+	cursor: pointer;
+	border: solid white 10px;
+	will-change: transform;
+	z-index: 1;
+}
+
+#shaddow{
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	right: 30px;
+	bottom: 30px;
+	border-radius: 100%;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+#splineMask > path{
+	fill: black;
+}
+
+#wheel > #middle{
+	fill: white;
+}
+
+#wheel > #knob{
+	fill: #ddd;
+}
+
+#wheel > text{
+	fill: white;
+	font-weight: bold;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+@media screen and ( max-height: 500px ) {
+	h1{
+		display: none;
+	}
+}
+
+  </style>
+</head>
+
+<body>
+
+
+    <h1>Título aquí... pincha y arrastra con el ratón para girar</h1>
+    <div id="spinner">
+      <svg
+           xmlns='http://www.w3.org/2000/svg'
+           xmlns:xlink='http://www.w3.org/1999/xlink'
+           viewBox='0 10 20 60'
+           id="clicker"
+           >
+        <path d="M 3 20 Q 10 0 17 20 Q 10 100 3 20" fill="#ddd"  />
+      </svg>
+    
+      <svg
+           xmlns='http://www.w3.org/2000/svg'
+           xmlns:xlink='http://www.w3.org/1999/xlink'
+           viewBox='0 0 100 100'
+           id="wheel"
+           >
+    
+        <mask id="splineMask">
+          <rect x="0" y="0" width="100" height="100" fill="white" />
+          <path d="M48.5 33 Q 50 35 51.5 33 Q 50 18 48.5 33"/>
+          <path transform="rotate(36, 50, 50)" d="M48.5 33 Q 50 35 51.5 33 Q 50 18 48.5 33"/>
+          <path transform="rotate(72, 50, 50)" d="M48.5 33 Q 50 35 51.5 33 Q 50 18 48.5 33"/>
+          <path transform="rotate(108, 50, 50)" d="M48.5 33 Q 50 35 51.5 33 Q 50 18 48.5 33"/>
+          <path transform="rotate(144, 50, 50)" d="M48.5 33 Q 50 35 51.5 33 Q 50 18 48.5 33"/>
+          <path transform="rotate(180, 50, 50)" d="M48.5 33 Q 50 35 51.5 33 Q 50 18 48.5 33"/>
+          <path transform="rotate(216, 50, 50)" d="M48.5 33 Q 50 35 51.5 33 Q 50 18 48.5 33"/>
+          <path transform="rotate(252, 50, 50)" d="M48.5 33 Q 50 35 51.5 33 Q 50 18 48.5 33"/>
+          <path transform="rotate(288, 50, 50)" d="M48.5 33 Q 50 35 51.5 33 Q 50 18 48.5 33"/>
+          <path transform="rotate(324, 50, 50)" d="M48.5 33 Q 50 35 51.5 33 Q 50 18 48.5 33"/>
+        </mask>
+    
+        <polygon points="50,50 71,-17 28,-16" style="fill: #FDD835"/>
+        <polygon points="50,50 28,-16 -7,9" style="fill: #FFC107"/>
+        <polygon points="50,50 -7,9 -20,51" style="fill: #FF9800"/>
+        <polygon points="50,50 -20,51 -6,92" style="fill: #FF5722"/>
+        <polygon points="50,50 -6,92 29,117" style="fill: #C2185B"/>
+        <polygon points="50,50 29,117 72,116" style="fill: #7B1FA2"/>
+        <polygon points="50,50 72,116 107,91" style="fill: #283593"/>
+        <polygon points="50,50 107,91 120,49" style="fill: #2196F3"/>
+        <polygon points="50,50 120,49 106,8" style="fill: #4CAF50"/>
+        <polygon points="50,50 106,8,71,-17" style="fill: #8BC34A"/>
+    
+        <text x="45" y="14">1</text>
+        <text x="45" y="14" transform="rotate(36, 50, 50)">2</text>
+        <text x="45" y="14" transform="rotate(72, 50, 50)">3</text>
+        <text x="45" y="14" transform="rotate(108, 50, 50)">4</text>
+        <text x="45" y="14" transform="rotate(144, 50, 50)">5</text>
+        <text x="45" y="14" transform="rotate(180, 50, 50)">6</text>
+        <text x="45" y="14" transform="rotate(216, 50, 50)">7</text>
+        <text x="45" y="14" transform="rotate(252, 50, 50)">8</text>
+        <text x="45" y="14" transform="rotate(288, 50, 50)">9</text>
+        <text x="40" y="14" transform="rotate(324, 50, 50)">10</text>
+    
+        <circle id="middle" cx="50" cy="50" r="33" mask="url(#splineMask)"/>
+        <circle id="knob" cx="50" cy="50" r="12"/>
+      </svg>
+    
+      <div id="shaddow"></div>
+    </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
